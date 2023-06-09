@@ -1,0 +1,22 @@
+
+
+RewriteEngine On
+
+#Força url sem www
+RewriteBase /
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+#Força utilização https
+RewriteCond %{HTTPS} !on
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+
+RewriteRule ^tecnologia/([a-z0-9-]+)/([a-z0-9-]+)/([a-z0-9-]+)/?$ tecnologia_.php?id=$1 [NC,L]
+RewriteRule ^design/([a-z0-9-]+)/([a-z0-9-]+)/([a-z0-9-]+)/?$ design_.php?id=$1 [NC,L]
+RewriteRule ^fotografia/([a-z0-9-]+)/([a-z0-9-]+)/([a-z0-9-]+)/?$ fotografia_.php?id=$1 [NC,L]
+RewriteRule ^arquitetura/([a-z0-9-]+)/([a-z0-9-]+)/([a-z0-9-]+)/?$ arquitetura_.php?id=$1 [NC,L]
+RewriteRule ^filme/([a-z0-9-]+)/([a-z0-9-]+)/([a-z0-9-]+)/?$ filme_.php?id=$1 [NC,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php

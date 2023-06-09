@@ -1,0 +1,323 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <img src="images/listas-ativas.png" style="width: 25px; margin-right: 5px;" alt="">
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./dashboard"><i class="fa fa-home"></i></a></li>
+                <li>Evento </li>
+            </ul>
+
+            <h4>Evento </h4>
+        </div>
+    </div><!-- media -->
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+
+    {msg}
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#list" data-toggle="tab"><img src="images/listas-ativas.png"
+                    style="width: 25px; margin-right: 5px;" alt=""><strong>Listas Ativas</strong></a></li>
+        <li><a href="#register" data-toggle="tab"><img src="images/cria.png" style="width: 26px; margin-right: 5px;"
+                    alt=""><strong>Cadastrar</strong></a></li>
+        <li><a href="#fechada" data-toggle="tab"><img src="images/listas_fechadas.png"
+                    style="width: 26px; margin-right: 5px;" alt=""><strong>Listas Fechadas</strong></a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content mb30">
+        <div class="tab-pane " id="register">
+            <!-- CADASTRO -->
+            <div class="row">
+                <div class="col-md-12">
+                    <form id="form-fotografia" class="form-horizontal form-bordered" action="_process_request.php"
+                        method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="act" value="cadastrar_cha" />
+                        <input type="hidden" name="idcha" id="idcha" value="{idcha}" />
+                        <div class="panel panel-default" style="border: 0px!important;">
+                            <div class="panel-body">
+                                <div class="alert alert-warning">
+                                    <button type="button" class="close" data-dismiss="alert"
+                                        aria-hidden="true">&times;</button>
+                                    Os campos com <strong>*</strong> são de preenchimento obrigatório.
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-12  text-center">Anfitrião(a) *</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="noivo" class="form-control" placeholder="Nome" />
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="tel" name="telefone1" class="form-control fone" id="fone1"
+                                            placeholder="(__) _____-____ " />
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="email1" class="form-control" placeholder="Email" />
+                                    </div>
+                                </div><!-- form-group -->
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-12  text-center ">Anfitriã(o) </label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="noiva" class="form-control" placeholder="Nome" />
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="tel" name="telefone2" class="form-control fone"
+                                            placeholder="(__) _____-____ " />
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="email2" class="form-control" placeholder="Email" />
+                                    </div>
+                                </div><!-- form-group -->
+
+
+
+
+                                <div class="form-group">
+
+
+                                    <label class="col-sm-6  text-center mt10">Data Do Evento *</label>
+                                    <label class="col-sm-6  text-center mt10">Unidade *</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="data_fim" id="data_fim"
+                                            class="form-control date datepicker width100p hasDatepicker" required=""
+                                            id="datepicker" placeholder="__/__/____">
+                                    </div>
+
+
+                                    <div class="col-sm-6">
+                                        <select name="loja" id="store" class="form-control">
+                                            <option value=" ">Nenhuma selecionada</option>
+
+                                                <!-- START BLOCK : unidade -->
+                                                <option value="{id}">{id}</option>
+                                                    <!-- END BLOCK : unidade -->
+                                            <!-- <option value="Alvorada | Av. Presidente Getúlio Vargas, 1567">Alvorada |
+                                                Av. Presidente Getúlio Vargas, 1567</option>
+                                            <option value="Alvorada | Av. Presidente Getúlio Vargas, 2382">Alvorada |
+                                                Av. Presidente Getúlio Vargas, 2382</option>
+                                            <option value="Bagé | Av. General Osório, 1.001">Bagé | Av. General Osório,
+                                                1.001</option>
+                                            <option value="Cachoeirinha | Matriz">Cachoeirinha | Matriz</option>
+                                            <option value="Canoas | Rua XV de Janeiro, 190">Canoas | Rua XV de Janeiro,
+                                                190</option>
+                                            <option value="Canoas | Shopping Canoas | Av. Guilherme Schell, 6.750">
+                                                Canoas | Shopping Canoas | Av. Guilherme Schell, 6.750</option>
+                                            <option value="Caxias do Sul | Av. Júlio de Castilhos , 2272">Caxias do Sul
+                                                | Av. Júlio de Castilhos , 2272</option>
+                                            <option value="Caxias do Sul | Av. Sinimbú, 1.659">Caxias do Sul | Av.
+                                                Sinimbú, 1.659</option>
+                                            <option value="Esteio | Av. Presidente Vargas, 2.377">Esteio | Av.
+                                                Presidente Vargas, 2.377</option>
+                                            <option value="Gravataí | Rua José Costa de Medeiros, 1745">Gravataí | Rua
+                                                José Costa de Medeiros, 1745</option>
+                                            <option
+                                                value="Gravataí | Shopping Gravataí | Av. Centenário, 555 | Loja 137">
+                                                Gravataí | Shopping Gravataí | Av. Centenário, 555 | Loja 137</option>
+                                            <option value="Guaíba | Rua São José, 572">Guaíba | Rua São José, 572
+                                            </option>
+                                            <option value="Montenegro | Ramiro Barcelos, 1558">Montenegro | Ramiro
+                                                Barcelos, 1558</option>
+                                            <option value="Montenegro | Rua Osvaldo Aranha, 1.520 | Loja 01">Montenegro
+                                                | Rua Osvaldo Aranha, 1.520 | Loja 01</option>
+                                            <option value="Novo Hamburgo | Rua Pedro Adams Filho, 5241">Novo Hamburgo |
+                                                Rua Pedro Adams Filho, 5241</option>
+                                            <option value="Osório | Rua Marechal Floriano Peixoto, 1.109">Osório | Rua
+                                                Marechal Floriano Peixoto, 1.109</option>
+                                            <option value="Passo Fundo | Av. Brasil Oeste, 585">Passo Fundo | Av. Brasil
+                                                Oeste, 585</option>
+                                            <option value="Pelotas | Rua Marechal Floriano, 13">Pelotas | Rua Marechal
+                                                Floriano, 13</option>
+                                            <option value="Porto Alegre | Av. Assis Brasil, 2.155">Porto Alegre | Av.
+                                                Assis Brasil, 2.155</option>
+                                            <option value="Porto Alegre | Av. da Azenha, 900">Porto Alegre | Av. da
+                                                Azenha, 900</option>
+                                            <option value="Porto Alegre | Av. Osvaldo Aranha, 1118">Porto Alegre | Av.
+                                                Osvaldo Aranha, 1118</option>
+                                            <option value="Porto Alegre | Rua José Montaury, 147">Porto Alegre | José
+                                                Montaury, 147</option>
+                                            <option value="Porto Alegre | Rua dos Andradas 1211">Porto Alegre | Rua dos
+                                                Andradas 1211</option>
+                                            <option value="Porto Alegre | Rua dos Andradas, 910">Porto Alegre | Rua dos
+                                                Andradas, 910</option>
+                                            <option value="Porto Alegre | Rua Dr. Flores, 234">Porto Alegre | Rua Rua
+                                                Dr. Flores, 234</option>
+                                            <option value="Porto Alegre | Rua Vigário José Inácio, 274">Porto Alegre |
+                                                Rua Vigário José Inácio, 274</option>
+                                            <option value="Rio Grande | Rua General Bacelar, 528">Rio Grande | Rua
+                                                General Bacelar, 528</option>
+                                            <option value="Santa Cruz | Rua Júlio de Castilhos, 207">Santa Cruz | Rua
+                                                Júlio de Castilhos, 207</option>
+                                            <option value="Santa dedstudio13 | Av. Rio Branco, 933">Santa dedstudio13 | Av. Rio
+                                                Branco, 933</option>
+                                            <option value="Torres | Rua XV de Novembro, 217">Torres | Rua XV de
+                                                Novembro, 217</option>
+                                            <option value="Tramandaí | Rua Jorge Enéas Sperb, 141">Tramandaí | Rua Jorge
+                                                Enéas Sperb, 141</option>
+                                            <option value="Viamão | Avenida Liberdade, 1589 | Loja 102">Viamão | Avenida
+                                                Liberdade, 1589 | Loja 102</option>
+                                            <option value="Viamão | Rua Daltro Filho, 107">Viamão | Rua Daltro Filho,
+                                                107</option> -->
+                                        </select>
+                                    </div>
+                                </div><!-- form-group -->
+
+
+                                <div class="alert alert-danger alert-hide text-center"></div>
+                            </div><!-- panel-body -->
+                            <div class=" text-right">
+                                <img alt="" src="images/loaders/loader6.gif" class="loader mr35 mb5 display-none">
+                                <button class="btn btn-default mr5"><img src="images/cria.png"
+                                        style="width: 20px; margin-right: 5px;" alt="">Criar Lista</button>
+                            </div><!-- panel-footer -->
+
+                        </div><!-- panel -->
+                    </form>
+
+                </div>
+            </div><!-- row -->
+            <!-- END CADASTRO -->
+        </div><!-- tab-pane -->
+        <div class="tab-pane " id="fechada">
+            <!-- LISTA -->
+            <a href="./relatorios/lista-chas" class="btn btn-default mr5 mb10"><i class="fa fa-file-pdf-o "
+                    aria-hidden="true"></i> Exportar PDF</a>
+
+
+
+            <!-- form-group -->
+
+            <div class="form-group mt20">
+
+                <table id="list_fotografia" class="table table-striped table-bordered responsive">
+                    <thead>
+                        <tr>
+                            <th>Anfitrião(a) </th>
+
+                            <th>Unidade</th>
+                            <th>Data do Evento</th>
+
+
+
+                            <th class="text-center">Ações</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <!-- START BLOCK : cha2 -->
+                        <tr>
+
+
+                            <td>{noivo}</td>
+
+                            <td>{loja}</td>
+                            <td>{datafim}</td>
+
+
+                            <td class="table-action text-center">
+
+                                <a href="visualizar-cha?id={id}&status={status_visualizar}" data-toggle="tooltip"
+                                    title="visualizar" class="btn btn-warning">
+                                    Visualizar
+                                </a>
+
+                                <a href="javascript:void(0)"
+                                    onclick="deleteFotografia({id}, 'fotografia_delete', '{noivo}')"
+                                    data-toggle="tooltip" title="Excluir" class="btn btn-danger">Excluir</a>
+                            </td>
+                        </tr>
+                        <!-- END BLOCK : cha2 -->
+
+
+                    </tbody>
+                </table>
+            </div>
+
+            <!--  END LISTA  -->
+        </div><!-- tab-pane -->
+        <div class="tab-pane active" id="list">
+            <!-- LISTA -->
+            <a href="./relatorios/lista-chas" class="btn btn-default mr5 mb10"><i class="fa fa-file-pdf-o "
+                    aria-hidden="true"></i> Exportar PDF</a>
+
+
+
+            <!-- form-group -->
+
+            <div class="form-group mt20">
+
+                <table id="list_arquitetura" class="table table-striped table-bordered responsive">
+                    <thead>
+                        <tr>
+                            <th>Anfitrião(a) </th>
+
+                            <th>Unidade</th>
+                            <th>Data do Evento</th>
+
+
+
+                            <th class="text-center">Ações</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <!-- START BLOCK : cha -->
+                        <tr>
+
+
+                            <td>{noivo}</td>
+
+                            <td>{loja}</td>
+                            <td>{datafim}</td>
+
+
+                            <td class="table-action text-center">
+                                <a href="adicionar-produtos-cha.php?id={id}&status={status_visualizar}"
+                                    data-toggle="tooltip" title="visualizar" class="btn btn-success">
+                                    Adicionar Produtos
+                                </a>
+
+                                <a href="visualizar-cha?id={id}&status={status_visualizar}" data-toggle="tooltip"
+                                    title="visualizar" class="btn btn-warning">
+                                    Visualizar
+                                </a>
+
+                                <a href="javascript:void(0)"
+                                    onclick="deleteFotografia({id}, 'fotografia_delete', '{noivo}')"
+                                    data-toggle="tooltip" title="Excluir" class="btn btn-danger">Excluir</a>
+                            </td>
+                        </tr>
+                        <!-- END BLOCK : cha -->
+
+                    </tbody>
+                </table>
+            </div>
+
+            <!--  END LISTA  -->
+        </div><!-- tab-pane -->
+
+
+
+    </div><!-- tab-content -->
+
+    <div class="mb20"></div>
+
+</div>
+<script>
+    $(document).ready(function () {
+
+        if (window.location.hash != "") {
+            $('a[href="' + window.location.hash + '"]').click()
+        }
+
+    });
+
+</script>

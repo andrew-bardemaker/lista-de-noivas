@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <title>Área Administrativa</title>
+
+    <link href="css/style.default.css" rel="stylesheet">
+    <link href="css/morris.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+    <script src="https://code.jquery.com/jquery-1.8.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+    <script>
+        $(function() {
+            $( "#datepicker" ).datepicker();
+        });
+        </script>
+    <header>
+        <div class="headerwrapper">
+            <div class="header-left">
+                <a href="./dashboard" class="logo">
+                    <img src="images/logo.png" alt="" style=" max-width: 165px;position: absolute;top: 20px;" />
+                </a>
+
+            </div><!-- header-left -->
+
+
+
+        </div><!-- headerwrapper -->
+    </header>
+
+    <section>
+        <div class="mainwrapper">
+            <div class="leftpanel">
+                <ul class="nav nav-pills nav-stacked">
+                    <h5 class="leftpanel-title"></h5>
+                    <li class=" {ativaPainel}"><a href="./dashboard.php"><img src="images/dahsboard.png"
+                                style="width: 30px;" alt=""> <span>Painel</span></a>
+                    </li>
+                    <li class=" {ativaUsuario}"><a href="./usuarios.php"><img src="images/usuarios.png" style="width: 30px;"
+                                alt="">
+                            <span>Usuarios</span></a></li>
+                    <li class=" {ativaUnidades}"><a href="./unidades.php"><img src="images/listas.png" style="width: 30px;"
+                                alt="">
+                            <span>Unidades</span></a></li>
+                    <li class=" {ativaEventos}"><a href="./cha.php"><img src="images/listas-ativas.png" style="width: 30px;"
+                                alt=""> <span>Evento</span></a></li>
+                    <li class=" {ativaProdutos}"><a href="./produtos.php"><img src="images/produtos.png"
+                                style="width: 30px;" alt="">
+                            <span>Produtos</span></a></li>
+                </ul>
+                <div class="sair">
+
+                    <a href="login_exec.php?act=logout"><i class="glyphicon glyphicon-log-out"></i>Logout/Sair</a>
+                </div>
+
+            </div><!-- leftpanel -->
+
+
+        </div><!-- mainwrapper -->
+        <div class="mainpanel">
+            <!-- INCLUDE BLOCK : content -->
+        </div><!-- mainpanel -->
+    </section>
+
+
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/jquery-ui-1.10.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/modernizr.min.js"></script>
+    <script src="js/pace.min.js"></script>
+    <!--<script src="js/retina.min.js"></script>-->
+    <script src="js/jquery.cookies.js"></script>
+
+
+
+    <script src="js/flot/jquery.flot.min.js"></script>
+    <script src="js/flot/flot.pie.min.js"></script>
+    <script src="js/flot/jquery.flot.resize.min.js"></script>
+    <script src="js/flot/jquery.flot.spline.min.js"></script>
+    <script src="js/morris.min.js"></script>
+    <script src="js/raphael-2.1.0.min.js"></script>
+    <script src="js/jquery.sparkline.min.js"></script>
+    <!--<script src="js/bootstrap-wizard.min.js"></script>-->
+    <script src="js/select2.min.js"></script>
+
+    <script src="js/jquery.mask.min.js"></script>
+    <script src="js/bootstrap-timepicker.min.js"></script>
+    <script src="js/jquery.form.js"></script>
+
+    <script src="js/jquery.dataTables.js"></script>
+    <script src="js/dataTables.bootstrap.js"></script>
+    <script src="js/dataTables.responsive.js"></script>
+    <script src="js/dataTables.date-eu.js"></script>
+    <script src="js/dataTables.date-de.js"></script>
+
+    <script src="js/jquery.prettyPhoto.js"></script>
+
+    <script src="js/bootbox.min.js"></script>
+    <script src="js/js.functions.js?20210212165000"></script>
+    <script src="js/js.functions-ajax.js"></script>
+    <script src="js/js.busca-cep.js"></script>
+
+    <!--<script src="js/dropzone.min.js"></script>
+        <script src="js/jquery-multidownload.js"></script>-->
+
+    <script src="js/jquery.tagsinput.min.js"></script>
+    <script src="js/wysihtml5-0.3.0.min.js"></script>
+    <script src="js/bootstrap-wysihtml5.js"></script>
+
+    <script src="js/jquery.fancybox.js"></script>
+    <script src="js/ui.datepicker-pt-BR.js"></script>
+    <script src="js/custom.js?{data_cache}"></script>
+    <script src="js/validation-forms.js"></script>
+
+    <!--<script src="js/dashboard.js"></script>-->
+
+</body>
+
+</html>

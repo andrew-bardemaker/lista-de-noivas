@@ -1,0 +1,219 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <img src="images/produtos.png" style="width: 35px;" alt="">
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./dashboard"><i class="fa fa-home"></i></a></li>
+                <li>Produtos </li>
+            </ul>
+
+            <h4>Produtos </h4>
+        </div>
+    </div><!-- media -->
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+    {msg}
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#list" data-toggle="tab"><strong><img src="images/produtos.png"
+                        style="width: 25px; margin-right: 5px;" alt="">Produtos</strong></a></li>
+        <!--  <li><a href="#register" data-toggle="tab"><strong>Cadastrar</strong></a></li>-->
+        <li><a href="#importar" data-toggle="tab"><strong><img src="images/cria.png"
+                        style="width: 25px; margin-right: 5px;" alt="">Importar</strong></a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content mb30">
+
+        <div class="tab-pane active" id="list">
+            <!-- LISTA -->
+            <div class="col-xs-6">
+                <div id="list_fotografia_filter" style="    display: flex; width: 100%;    align-items: center;" class="dataTables_filter">
+                    <label style="display: flex;align-items: center;">Pesquisar<input type="search"
+                            class="form-control input-sm" placeholder="" id="busca" aria-controls="list_fotografia"></label>
+                    <a href="#" class="btn-default" onclick="buscarProduto()"
+                        style="width: 75px; height: 25px; display: flex;justify-content: center; align-items: center; margin-left: 10px;">Buscar</a>
+                </div>
+            </div>
+            <table id="list_fotografia" class="table table-striped table-bordered responsive">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Preço</th>
+                        <th>Código de Barras </th>
+
+
+
+                </thead>
+
+                <tbody>
+
+                    <!-- START BLOCK : produtos -->
+                    <tr>
+
+
+                        <td>{nome}</td>
+                        <td>R${preco}</td>
+                        <td>{codigo_sistema}</td>
+
+
+
+
+                    </tr>
+                    <!-- END BLOCK : produtos -->
+
+                </tbody>
+            </table>
+            <nav aria-label="Page navigation" style="    float: right;">
+                <ul class="pagination">
+
+                    <li aria-label="Previous">
+                        <a href="produtos.php?page={previous}">
+                            <span>Previous</span>
+                        </a>
+                    </li>
+
+
+                    <li aria-label="Previous">
+                        <a aria-hidden="true " href="#">
+                            {page}
+                        </a>
+                    </li>
+
+                    <li aria-label="Next">
+                        <a href="produtos.php?page={next}">
+                            <span aria-hidden="true ">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!--  END LISTA  -->
+        </div><!-- tab-pane -->
+
+        <div class="tab-pane " id="register">
+            <!-- CADASTRO -->
+            <div class="row">
+                <div class="col-md-10">
+                    <form id="form-fotografia" class="form-horizontal form-bordered" action="_process_request.php"
+                        method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="act" value="cadastrar_produto" />
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="alert alert-warning">
+                                    <button type="button" class="close" data-dismiss="alert"
+                                        aria-hidden="true">&times;</button>
+                                    Os campos com <strong>*</strong> são de preenchimento obrigatório.
+                                </div>
+                                <h4 class="text-center mt10">Cadastrar Produto</h4>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Código no Sistema </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="codigo" class="form-control" />
+                                    </div>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Nome </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="nome" class="form-control" />
+                                    </div>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Preço </label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="preco" class="form-control" />
+                                    </div>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Códigos de Barras </label>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="add_barras" class="form-control" />
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <a class="btn btn-default mr5" onclick="addBarras()">Adicionar</a>
+                                    </div>
+
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <h4 class="text-center mt10">Lista de códigos de barras</h4>
+
+                                    <div class="col-sm-12" id="barras">
+
+                                    </div>
+                                </div><!-- form-group -->
+
+
+
+
+
+                                <div class="alert alert-danger alert-hide text-center"></div>
+                            </div><!-- panel-body -->
+
+                            <div class="panel-footer text-right">
+                                <img alt="" src="images/loaders/loader6.gif" class="loader mr35 mb5 display-none">
+                                <button class="btn btn-default mr5">Cadastrar</button>
+                            </div><!-- panel-footer -->
+
+                        </div><!-- panel -->
+                    </form>
+                </div>
+            </div><!-- row -->
+            <!-- END CADASTRO -->
+        </div><!-- tab-pane -->
+
+
+        <div class="tab-pane " id="importar">
+            <!-- CADASTRO -->
+            <div class="row">
+                <div class="col-md-10">
+                    <form id="form-produtos" class="form-horizontal form-bordered" action="_process_request.php"
+                        method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="act" value="produtos_multiplos_cadastrar" />
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="alert alert-warning">
+                                    <button type="button" class="close" data-dismiss="alert"
+                                        aria-hidden="true">&times;</button>
+                                    Os campos com <strong>*</strong> são de preenchimento obrigatório.
+                                </div>
+                                <h4 class="text-center mt10">Importar Produtos</h4>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Arquivo </label>
+                                    <div class="col-sm-9">
+                                        <input type="file" name="file" accept=".zip" class="form-control">
+                                        <span class="help-block">Para importar seu arquivo .CSV, primeiramente, nomeie-o como : <strong> produtos_dedstudio13.csv </strong>, feito isso, compacte-o exclusivamente em formato .ZIP com o nome <strong>produtos_dedstudio13.zip</strong></span>
+                                    </div>
+                                </div><!-- form-group -->
+
+
+
+                                <div class="alert alert-danger alert-hide text-center"></div>
+                            </div><!-- panel-body -->
+
+                            <div class="panel-footer text-right">
+                                <img alt="" src="images/loaders/loader6.gif" class="loader mr35 mb5 display-none">
+                                <button class="btn btn-default mr5">Cadastrar</button>
+                            </div><!-- panel-footer -->
+
+                        </div><!-- panel -->
+                    </form>
+                </div>
+            </div><!-- row -->
+            <!-- END CADASTRO -->
+        </div><!-- tab-pane -->
+
+
+    </div><!-- tab-content -->
+
+    <div class="mb20"></div>
+
+</div>

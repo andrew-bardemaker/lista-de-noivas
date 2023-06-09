@@ -1,0 +1,40 @@
+
+
+
+table.dataTable.dtr-inline.collapsed tbody tr.child td:before {
+  display: none;
+}
+table.dataTable.dtr-column tbody td.control,
+table.dataTable.dtr-column tbody th.control {
+  position: relative;
+  cursor: pointer;
+}
+
+
+table.dataTable tr.child {
+  padding: 0.5em 1em;
+}
+table.dataTable tr.child:hover {
+  background: transparent !important;
+}
+table.dataTable tr.child ul {
+  display: inline-block;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+table.dataTable tr.child ul li {
+  border-bottom: 1px solid #efefef;
+  padding: 0.5em 0;
+}
+table.dataTable tr.child ul li:first-child {
+  padding-top: 0;
+}
+table.dataTable tr.child ul li:last-child {
+  border-bottom: none;
+}
+table.dataTable tr.child span.dtr-title {
+  display: inline-block;
+  min-width: 75px;
+  font-weight: bold;
+}

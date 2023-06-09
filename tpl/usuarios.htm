@@ -1,0 +1,152 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <img src="images/usuarios.png" style="width: 35px;" alt="">
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./dashboard"><i class="fa fa-home"></i></a></li>
+                <li>Usuarios</li>
+            </ul>
+            <h4>Usuarios</h4>
+        </div>
+    </div><!-- media -->
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+    {msg}
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#list" data-toggle="tab"><strong><img src="images/usuarios.png" style="width: 25px; margin-right: 5px;" alt="">
+            Usuários</strong></a></li>
+        <li><a href="#register" data-toggle="tab"><strong><img src="images/cria.png" style="width: 25px; margin-right: 5px;" alt="">Cadastrar Usuário</strong></a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content mb30">
+        <div class="tab-pane active" id="list">
+            <!-- LISTA -->
+            <table id="list_fotografia" class="table table-striped table-bordered responsive">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>Unidade</th>
+                        <th class="text-center">Ações</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <!-- START BLOCK : usuarios -->
+                    <tr>
+                        <td>{nome}</td>
+                        <td>{email}</td>
+                        <td>{telefone}</td>
+                        <td>{unidade}</td>
+                        <td class="table-action text-center">
+                            
+
+                            <a href="usuario-editar?id={id}" data-toggle="tooltip" title="Editar"style="color: #fff;" class="tooltips editar"><i
+                                    class="fa fa-pencil " style="margin-right: 5px;"></i> Editar</a>
+
+                            <a href="javascript:void(0)"style="color: white;" onclick="deleteUsuario({id}, 'usuario_delete', '{nome}')"
+                                data-toggle="tooltip" title="Excluir" class="delete-row tooltips exclui"><i
+                                    class="fa fa-trash-o"style="margin-right: 5px;" ></i>Excluir</a>
+
+                        </td>
+                    </tr>
+                    <!-- END BLOCK : usuarios -->
+
+                </tbody>
+            </table>
+            <!--  END LISTA  -->
+        </div><!-- tab-pane -->
+
+        <div class="tab-pane" id="register">
+            <!-- CADASTRO -->
+            <div class="row">
+                <div class="col-md-10">
+                    <form id="form-usu" class="form-horizontal form-bordered" action="_process_request.php"
+                        method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="act" value="user_insert" />
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="alert alert-warning">
+                                    <button type="button" class="close" data-dismiss="alert"
+                                        aria-hidden="true">&times;</button>
+                                    Os campos com <strong>*</strong> são de preenchimento obrigatório.
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Nome *</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="nome" class="form-control" />
+                                    </div>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Cpf *</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="cpf" class="form-control" />
+                                    </div>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Email *</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="email" class="form-control" />
+                                    </div>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Telefone *</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="telefone" class="form-control" />
+                                    </div>
+                                </div><!-- form-group -->
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Unidade *</label>
+                                    <div class="col-sm-9">
+                                        <select name="loja" id="store" class="form-control">
+                                            <option value=" ">Nenhuma selecionada</option>
+                                            <!-- START BLOCK : unidade -->
+                                            <option value="{unidade}">{unidade}</option>
+                                            <!-- END BLOCK : unidade -->
+                                        </select>
+                                    </div>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Senha *</label>
+                                    <div class="col-sm-9">
+                                        <input type="password" name="pass" placeholder="Informe a senha"
+                                            class="form-control mb10" />
+                                        <input type="password" name="rpt_pass" placeholder="Repita a senha"
+                                            class="form-control" />
+                                    </div>
+                                </div><!-- form-group -->
+
+
+                                <div class="alert alert-danger alert-hide text-center"></div>
+                            </div><!-- panel-body -->
+                            <div class="panel-footer text-right">
+                                <img alt="" src="images/loaders/loader6.gif" class="loader mr35 mb5 display-none">
+                                <button class="btn btn-default mr5">Cadastrar</button>
+                            </div><!-- panel-footer -->
+
+                        </div><!-- panel -->
+                    </form>
+                </div>
+            </div><!-- row -->
+            <!-- END CADASTRO -->
+        </div><!-- tab-pane -->
+    </div><!-- tab-content -->
+
+    <div class="mb20"></div>
+
+</div>
