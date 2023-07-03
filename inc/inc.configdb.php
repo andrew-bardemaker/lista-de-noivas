@@ -12,10 +12,10 @@ if ($_SERVER['HTTP_HOST'] == 'localhost') {
 	define('BASEDB', 'con555');
 }
 else {
-	define('HOSTDB','mysql.dedstudio.poa.br');
-	define('USERDB','dedstudio13');
-	define('PASSDB','p4ineld3d');
-	define('BASEDB','dedstudio13');
+	define('HOSTDB','url');
+	define('USERDB','user');
+	define('PASSDB','senha');
+	define('BASEDB','nomebanco');
 }
 
 
